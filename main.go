@@ -41,8 +41,9 @@ func generateCSVFromXLSXFile(w io.Writer, excelFileName string, sheetIndex int, 
 				str, err := cell.String()
 				if err != nil {
 					vals = append(vals, err.Error())
+				} else {
+					vals = append(vals, str)
 				}
-				vals = append(vals, fmt.Sprintf("%q", str))
 			}
 			if err := cw.Write(vals); err != nil {
 				return err
@@ -59,7 +60,7 @@ func main() {
 	var (
 		outFile    = flag.String("o", "-", "filename to output to. -=stdout")
 		sheetIndex = flag.Int("i", 0, "Index of sheet to convert, zero based")
-		delimiter  = flag.String("d", ";", "Delimiter to use between fields")
+		delimiter  = flag.String("d", ",", "Delimiter to use between fields")
 	)
 	flag.Usage = func() {
 		fmt.Fprintf(os.Stderr, `%s
