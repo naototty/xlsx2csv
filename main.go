@@ -11,6 +11,7 @@ import (
 	"fmt"
 	"io"
 	"log"
+    "regexp"
 	"os"
 
 	"github.com/tealeg/xlsx"
@@ -78,6 +79,14 @@ Usage:
 		flag.Usage()
 		os.Exit(1)
 	}
+    re1 := regexp.MustCompile("\t")
+    re2 := regexp.MustCompile("TAB")
+	if (*delimiter == "\t") {
+        re1.ReplaceAllLiteralString(*delimiter, "\u0009")
+    }
+	if (*delimiter == "TAB") {
+        re2.ReplaceAllLiteralString(*delimiter, "\u0009")
+    }
 	out := os.Stdout
 	if !(*outFile == "" || *outFile == "-") {
 		var err error
