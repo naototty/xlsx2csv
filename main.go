@@ -61,7 +61,7 @@ func main() {
 	var (
 		outFile    = flag.String("o", "-", "filename to output to. -=stdout")
 		sheetIndex = flag.Int("i", 0, "Index of sheet to convert, zero based")
-		delimiter  = flag.String("d", ",", "Delimiter to use between fields")
+		delimiter  = flag.String("d", ",", "Delimiter to use between fields(TAB is tab)")
 	)
 	flag.Usage = func() {
 		fmt.Fprintf(os.Stderr, `%s
