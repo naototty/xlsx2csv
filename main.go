@@ -79,13 +79,16 @@ Usage:
 		flag.Usage()
 		os.Exit(1)
 	}
-    re1 := regexp.MustCompile("\t")
+    re1 := regexp.MustCompile("\\t")
     re2 := regexp.MustCompile("TAB")
 	if (*delimiter == "\t") {
-        re1.ReplaceAllLiteralString(*delimiter, "\u0009")
+        // re1.ReplaceAllLiteralString(*delimiter, "\u0009")
+        // *delimiter = re1.ReplaceAllString(*delimiter, "\u0009")
+        *delimiter = re1.ReplaceAllString(*delimiter, "\t")
     }
 	if (*delimiter == "TAB") {
-        re2.ReplaceAllLiteralString(*delimiter, "\u0009")
+        // re2.ReplaceAllLiteralString(*delimiter, "\t")
+        *delimiter = re2.ReplaceAllString(*delimiter, "\t")
     }
 	out := os.Stdout
 	if !(*outFile == "" || *outFile == "-") {
