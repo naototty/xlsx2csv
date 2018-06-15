@@ -1,6 +1,6 @@
 {
-  "name": "xlsx2csv",
-  "version": "go1.1.3",
+  "name": "xlsx2csv-go",
+  "version": "1.1.3",
   "description": "xlsx to csv exporting tool",
   "main": "xlsx2csv",
   "scripts": {

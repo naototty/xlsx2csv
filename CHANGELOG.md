@@ -7,7 +7,7 @@ Commit convention is based on [Conventional Commits](http://conventionalcommits.
 Change log format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 
-## [go1.1.3](https://github.com/naototty/xlsx2csv-go/compare/go1.1.2...go1.1.3) - 2018-06-15
+## [1.1.3](https://github.com/naototty/xlsx2csv-go/compare/go1.1.2...1.1.3) - 2018-06-15
 
 ### Changes
 - rename : README to README.md

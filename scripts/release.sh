@@ -12,7 +12,7 @@ NAME=$(node --eval "console.log(require('./package.json').name);")
 git checkout -b gh-release
 
 # run prepublish to build files
-npm run prepublish
+## npm run prepublish
 
 # force add files
 git add dist -f
@@ -35,4 +35,4 @@ git branch -D gh-release
 git push upstream :gh-release
 
 # publish release on NPM
-npm publish
+## npm publish
