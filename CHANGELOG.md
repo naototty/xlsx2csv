@@ -7,7 +7,7 @@ Commit convention is based on [Conventional Commits](http://conventionalcommits.
 Change log format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 
-## [1.1.3](https://github.com/naototty/xlsx2csv-go/compare/go1.1.2...go1.1.3) - 2018-06-15
+## [go1.1.3](https://github.com/naototty/xlsx2csv-go/compare/go1.1.2...go1.1.3) - 2018-06-15
 
 ### Changes
 - rename : README to README.md
@@ -18,13 +18,13 @@ Change log format is based on [Keep a Changelog](http://keepachangelog.com/).
 - add : scripts
 
 
-## [1.1.2](https://github.com/naototty/xlsx2csv-go/compare/go1.1.1...go1.1.2) - 2013-09-24
+## [go1.1.2](https://github.com/naototty/xlsx2csv-go/compare/go1.1.1...go1.1.2) - 2013-09-24
 
 ### Fixes
 - original release go1.1.2
 
 
-## 1.1.1 - 2015-09-24
+## go1.1.1 - 2015-09-24
 
 - create working prototype
 - define basic node interface
