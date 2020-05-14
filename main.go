@@ -33,6 +33,7 @@ func generateCSVFromXLSXFile(w io.Writer, excelFileName string, sheetIndex int, 
 	if csvOpts != nil {
 		csvOpts(cw)
 	}
+	re3 := regexp.MustCompile("\n")
 	sheet := xlFile.Sheets[sheetIndex]
 	var vals []string
 	for _, row := range sheet.Rows {
@@ -43,6 +44,7 @@ func generateCSVFromXLSXFile(w io.Writer, excelFileName string, sheetIndex int, 
 				if err != nil {
 					vals = append(vals, err.Error())
 				} else {
+					str = re3.ReplaceAllString(str, "_")
 					vals = append(vals, str)
 				}
 			}
