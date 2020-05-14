@@ -13,9 +13,18 @@ import (
 	"log"
 	"os"
 	"regexp"
+	"strings"
 
 	"github.com/tealeg/xlsx"
 )
+
+func convNewline(str, nlcode string) string {
+	return strings.NewReplacer(
+		"\r\n", nlcode,
+		"\r", nlcode,
+		"\n", nlcode,
+	).Replace(str)
+}
 
 func generateCSVFromXLSXFile(w io.Writer, excelFileName string, sheetIndex int, csvOpts csvOptSetter) error {
 	xlFile, error := xlsx.OpenFile(excelFileName)
@@ -33,7 +42,7 @@ func generateCSVFromXLSXFile(w io.Writer, excelFileName string, sheetIndex int, 
 	if csvOpts != nil {
 		csvOpts(cw)
 	}
-	re3 := regexp.MustCompile("\n")
+	// re3 := regexp.MustCompile("\n")
 	sheet := xlFile.Sheets[sheetIndex]
 	var vals []string
 	for _, row := range sheet.Rows {
@@ -44,7 +53,8 @@ func generateCSVFromXLSXFile(w io.Writer, excelFileName string, sheetIndex int, 
 				if err != nil {
 					vals = append(vals, err.Error())
 				} else {
-					str = re3.ReplaceAllString(str, "_")
+					// str = re3.ReplaceAllString(str, "_")
+					str := convNewline(str, "_")
 					vals = append(vals, str)
 				}
 			}
